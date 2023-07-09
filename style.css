@@ -1,0 +1,111 @@
+@font-face {
+  font-family: "Material Icons Extended";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/Material-Icons-Extended.woff2) format("woff2");
+}
+* {
+  color: black;
+}
+body {
+  background-color: darkgreen !important;
+  width: 100vw;
+  height: 100vh;
+}
+#root {
+  grid-template-columns: 85% 15%;
+  grid-template-rows: 30% 64% 6%;
+}
+main {
+  grid-template-columns: 1em auto 1em;
+}
+footer {
+  width: 100%;
+  color: white;
+  text-align: center;
+  place-items: center;
+}
+textarea {
+  vertical-align: top;
+  font-size: 30px !important;
+  overflow: hidden;
+  resize: none !important;
+  border: none;
+  outline: none;
+  font-family: monospace !important;
+  line-height: normal !important;
+  padding: 20px;
+  min-height: 350px;
+  width: 100%;
+}
+textarea#source-text {
+  padding: 20px;
+}
+#change_language {
+  background-color: white;
+}
+.translated-text {
+  padding: 20px;
+}
+button.key {
+  background-position: center;
+  cursor: pointer;
+  grid-column: 1 / 2;
+  width: 100%;
+}
+keyboard {
+  top: 0rem;
+  right: 0;
+  grid-row: 1 / 4;
+  height: 100vh;
+}
+#translator-bar {
+  place-items: center;
+  grid-template-columns: calc(100% / 2 - 3em / 2) 3em calc(100% / 2 - 3em / 2);
+}
+div#keyboard {
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 100%;
+}
+button.key:hover {
+  background-color: lightgrey;
+}
+button.key:active {
+  background-color: grey;
+}
+button > b,
+p {
+  font-size: 50px;
+}
+#image {
+  place-items: center;
+}
+#toggleKeyboard {
+  height: 5em;
+}
+.translator {
+  background: white;
+  grid-template-rows: 4em auto;
+  grid-template-columns: 100%;
+}
+#box-translator {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
+#footer-text {
+  color: white;
+}
+#copy-translate-text {
+  place-content: center;
+  margin-top: 2em;
+}
+#copy-button {
+  width: 15em;
+  height: 3em;
+  background: darkblue;
+  color: white;
+}
+#copy-button:hover {
+  border-color: currentColor;
+}

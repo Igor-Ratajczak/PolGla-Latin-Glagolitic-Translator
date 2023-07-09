@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst w alfabecie głagolicy oraz go odczytać.">
+    <meta name="keywords" content="tłumacz, głagolica, polski, polski na głagolice, tłumacz polski na głagolice">
+    <meta name="author" content="Igor Ratajczak">
+    <title>Polski na Głagolice</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="../Main css library/Main-css/main.css" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://www.jacklmoore.com/js/autosize.min.js"></script>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <div id="root" class="grid height-max-content">
+      <nav class="grid grid-cl-1-2 grid-row-1-2">
+        <div id="image" class="grid">
+          <img id="mainImg" src="img/keyNile-340x225.png" alt="obraz klucza Nilu" />
+          <img id="mobileImg" src="img/keyNile-217x144.png" class="none" alt="obraz klucza Nilu na telefon" />
+        </div>
+      </nav>
+      <main class="grid grid-row-2-3">
+        <div class="translator grid grid-cl-2-3 grid-row-2-3 height-max-content bg-red-700">
+          <div id="translator-bar" class="grid grid-cl-1-3">
+            <div id="lang-1" class="grid-cl-1-2" lang="pl">
+              <b class="text-language font-family-sans-serif font-weight-700 font-size-25 grid justify-cnt-center">POLSKI</b>
+            </div>
+            <div
+              id="change_language"
+              class="font-size-40 user-select-none grid-cl-2-3 cursor-pointer border-none"
+              tabindex="1"
+            >
+              <b>⇄</b>
+            </div>
+            <div id="lang-2" class="grid-cl-3-4" lang="gl">
+              <b class="text-language font-family-sans-serif font-weight-700 font-size-25 grid justify-cnt-center">GŁAGOLICA (ⰃⰎⰟⰀⰃⰑⰎⰋⰜⰀ)</b>
+            </div>
+          </div>
+          <div id="box-translator" class="grid height-max-content">
+            <div id="input_text" class="border-20 anime-border-stop border-groove">
+              <textarea
+                aria-label="Tekst źródłowy"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                name="source-text"
+                class="source-text"
+                autocomplete="off"
+                autocorrect="off"
+                role="combobox"
+                placeholder=""
+                spellcheck="false"
+                autofocus=""
+                wrap="hard"
+                tabindex="2"
+              ></textarea>
+            </div>
+            <div id="box-translated" class="border-20 anime-border-stop border-groove">
+              <div class="translated-text grid font-size-30 overflow-wrap-anywhere" tabindex="3">Tłumaczenie...</div>
+            </div>
+          </div>
+        </div>
+        <div id="copy-translate-text" class="grid grid-cl-2-3 grid-row-3-4">
+          <button id="copy-button" type="button" class="border-radius-50 border-red cursor-pointer" tabindex="4">
+            Skopiuj tłumaczenie
+          </button>
+        </div>
+      </main>
+      <footer class="grid grid-cl-1-2 grid-row-3-4 user-select-none">
+        <b id="footer-text" class="font-weight-900"></b>
+      </footer>
+      <script>
+        document.getElementById("footer-text").innerHTML =
+          "Copyright &copy; 2023-" + new Date().getFullYear() + " Igor Ratajczak All Rights Reserved";
+      </script>
+      <keyboard class="grid sticky grid-cl-2-3">
+        <button id="toggleKeyboard" type="button">
+          <u class="font-size-20">Ukryj klawiaturę</u>
+        </button>
+        <div id="keyboard" class="grid overflow-x-hidden overflow-y-scroll"></div>
+      </keyboard>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -14,7 +14,6 @@ body {
 }
 #root {
   grid-template-columns: 85% 15%;
-  grid-template-rows: 30% 64% 6%;
 }
 main {
   grid-template-columns: 1em auto 1em;

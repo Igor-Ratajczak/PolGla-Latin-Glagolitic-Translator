@@ -32,7 +32,7 @@ textarea {
   border: none;
   outline: none;
   font-family: monospace !important;
-  line-height: normal !important;
+  line-height: 30px !important;
   padding: 20px;
   min-height: 350px;
   width: 100%;
@@ -45,6 +45,8 @@ textarea#source-text {
 }
 .translated-text {
   padding: 20px;
+  white-space: break-spaces;
+  line-height: 30px;
 }
 button.key {
   background-position: center;

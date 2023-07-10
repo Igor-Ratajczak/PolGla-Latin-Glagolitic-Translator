@@ -32,7 +32,7 @@
             <div id="lang-1" class="grid-cl-1-2" lang="pl">
               <b class="text-language font-family-sans-serif font-weight-700 font-size-25 grid justify-cnt-center">POLSKI</b>
             </div>
-            <div id="change_language" class="font-size-40 user-select-none grid-cl-2-3 cursor-pointer border-none" tabindex="1">
+            <div id="change_language" class="font-size-40 user-select-none grid-cl-2-3 cursor-pointer border-none" tabindex="0">
               <b>⇄</b>
             </div>
             <div id="lang-2" class="grid-cl-3-4" lang="gl">
@@ -56,15 +56,15 @@
                 spellcheck="false"
                 autofocus=""
                 wrap="hard"
-                tabindex="2"></textarea>
+                tabindex="1"></textarea>
             </div>
             <div id="box-translated" class="border-20 anime-border-stop border-groove">
-              <div class="translated-text grid font-size-30 overflow-wrap-anywhere" tabindex="3">Tłumaczenie...</div>
+              <div class="translated-text grid font-size-30 overflow-wrap-anywhere" tabindex="2">Tłumaczenie...</div>
             </div>
           </div>
         </div>
         <div id="copy-translate-text" class="grid grid-cl-2-3 grid-row-3-4">
-          <button id="copy-button" type="button" class="border-radius-50 border-red cursor-pointer" tabindex="4">
+          <button id="copy-button" type="button" class="border-radius-50 border-red cursor-pointer" tabindex="3">
             Skopiuj tłumaczenie
           </button>
         </div>
@@ -77,7 +77,7 @@
           "Copyright &copy; 2023-" + new Date().getFullYear() + " Igor Ratajczak All Rights Reserved";
       </script>
       <keyboard class="grid sticky grid-cl-2-3">
-        <button id="toggleKeyboard" type="button">
+        <button id="toggleKeyboard" type="button" tabindex="4">
           <u class="font-size-20">Ukryj klawiaturę</u>
         </button>
         <div id="keyboard" class="grid overflow-x-hidden overflow-y-scroll"></div>

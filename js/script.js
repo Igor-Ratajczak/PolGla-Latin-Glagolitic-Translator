@@ -116,9 +116,8 @@ $(".source-text").on("input", function (e) {
     $(this).removeAttr("style");
   } else {
     translateText();
-    $(this)
-      .height(0)
-      .height(this.scrollHeight - 120);
+    $(this).height(0).height(this.scrollHeight);
+    $("#text-translated").height(0).height(this.scrollHeight);
   }
 });
 

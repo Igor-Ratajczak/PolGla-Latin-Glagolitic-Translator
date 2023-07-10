@@ -9,8 +9,7 @@ Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst w alfabecie głagolicy
 
 ## Ważne!
 
-- Pamiętaj ten tłumacz nie musi tłumaczyć niektórych słów tak jak powinien np. "woda", czyli "ⰲⱁⰴⰰ" w odwrotnym tłumaczeniu, tłumacz przetłumaczy to jako "voda" z powodu, że kiedyś nie było litery "w", tylko litera "v".
-- Problem ten dotyka również litery "ó" na razie nie mogę znaleźć odwzorowania litery "ó", więc ta litera nie będzie tłumaczona.
+- Pamiętaj ten tłumacz nie musi tłumaczyć niektórych liter np. litery **"ó"** nie będzie w ogóle tłuamczona ponieważ na razie nie mogę znaleźć jej odwzorowania. Tak samo jest z literą **"x"**.
 
 ## Link do strony.
 

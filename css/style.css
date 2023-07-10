@@ -13,7 +13,7 @@ body {
   height: 100vh;
 }
 #root {
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 84% 2% 14%;
 }
 main {
   grid-template-columns: 1em auto 1em;

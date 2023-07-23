@@ -9,7 +9,7 @@ Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst w alfabecie głagolicy
 
 ## Ważne!
 
-- Pamiętaj ten tłumacz nie musi tłumaczyć niektórych liter np. litery **"ó"** nie będzie w ogóle tłuamczona ponieważ na razie nie mogę znaleźć jej odwzorowania. Tak samo jest z literą **"x"**.
+- Pamiętaj ten tłumacz nie musi tłumaczyć niektórych liter np. litera **"ó"** nie będzie w ogóle tłumaczona ponieważ na razie nie mogę znaleźć jej odwzorowania. Tak samo jest z literą **"x"**.
 
 ## Link do strony.
 

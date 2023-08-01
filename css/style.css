@@ -26,7 +26,7 @@ footer {
 }
 textarea {
   vertical-align: top;
-  font-size: 30px !important;
+  font-size: 25px !important;
   overflow: hidden;
   resize: none !important;
   border: none;
@@ -78,6 +78,9 @@ button.key:active {
 button > b,
 p {
   font-size: 50px;
+}
+button {
+  cursor: pointer;
 }
 #image {
   place-items: center;

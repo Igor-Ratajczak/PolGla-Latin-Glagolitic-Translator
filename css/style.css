@@ -26,13 +26,13 @@ footer {
 }
 textarea {
   vertical-align: top;
-  font-size: 25px !important;
+  font-size: 25px;
   overflow: hidden;
   resize: none !important;
   border: none;
   outline: none;
   font-family: monospace !important;
-  line-height: 30px !important;
+  /* line-height: 2px !important; */
   padding: 20px;
   min-height: 350px;
   width: 100%;

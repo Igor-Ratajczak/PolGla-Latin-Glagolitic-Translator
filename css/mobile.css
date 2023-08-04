@@ -14,15 +14,23 @@
   #mobileImg {
     display: block;
   }
+  .translated-text,
+  #input_text > textarea {
+    font-size: 30px !important;
+  }
   * {
     font-size: 15px !important;
   }
 }
 @media screen and (max-width: 630px) {
-  * {
+  /* * {
     font-size: 8px !important;
+  } */
+  .translated-text,
+  #input_text > textarea {
+    font-size: 30px !important;
   }
   #toggleKeyboard > b {
-    font-size: 5px !important;
+    font-size: 10px !important;
   }
 }

@@ -26,13 +26,12 @@ footer {
 }
 textarea {
   vertical-align: top;
-  font-size: 25px;
+  font-size: 30px !important;
   overflow: hidden;
   resize: none !important;
   border: none;
   outline: none;
   font-family: monospace !important;
-  /* line-height: 2px !important; */
   padding: 20px;
   min-height: 350px;
   width: 100%;
@@ -47,6 +46,7 @@ textarea#source-text {
   padding: 20px;
   white-space: break-spaces;
   line-height: 30px;
+  font-size: 30px !important;
 }
 button.key {
   background-position: center;

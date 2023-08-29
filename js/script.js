@@ -8,8 +8,8 @@ const characters = [
   { pl: "b", gl: "\u2C31" },
   { pl: "C", gl: "\u2C1C" },
   { pl: "c", gl: "\u2C4C" },
-  { pl: "Ć", gl: "\u2C1B" },
-  { pl: "ć", gl: "\u2C4B" },
+  { pl: "Ć", gl: "\u2C1C\u2C20" },
+  { pl: "ć", gl: "\u2C4C\u2C50" },
   { pl: "Ch", gl: "\u2C18" },
   { pl: "CH", gl: "\u2C18" },
   { pl: "ch", gl: "\u2C48" },
@@ -55,41 +55,40 @@ const characters = [
   { pl: "k", gl: "\u2C3D" },
   { pl: "L", gl: "\u2C0E" },
   { pl: "l", gl: "\u2C3E" },
-  { pl: "Ł", gl: "\u2C0E\u2C1F" },
-  { pl: "ł", gl: "\u2C3E\u2C4F" },
+  { pl: "Ł", gl: "\u2C1F\u2C0E" },
+  { pl: "ł", gl: "\u2C4F\u2C3E" },
   { pl: "M", gl: "\u2C0F" },
   { pl: "m", gl: "\u2C3F" },
   { pl: "N", gl: "\u2C10" },
   { pl: "n", gl: "\u2C40" },
-  { pl: "Ń", gl: "\u2C10\u2C4F" },
-  { pl: "ń", gl: "\u2C40\u2C4F" },
-  { pl: "Ni", gl: "\u2C10\u2C4F" },
-  { pl: "NI", gl: "\u2C10\u2C1F" },
-  { pl: "ni", gl: "\u2C40\u2C4F" },
-  { pl: "O", gl: "\u2C11" },
+  { pl: "Ń", gl: "\u2C10\u2C20" },
+  { pl: "ń", gl: "\u2C40\u2C50" },
+  { pl: "N", gl: "\u2C10" },
+  { pl: "n", gl: "\u2C40" },
+  { pl: "O", gl: "\u2C19" },
   { pl: "o", gl: "\u2C41" },
-  // { pl: "Ó", gl: "\u2C16" },
-  // { pl: "ó", gl: "\u2C46" },
-  { pl: "Ot", gl: "\u2C19" },
-  { pl: "OT", gl: "\u2C19" },
-  { pl: "ot", gl: "\u2C49" },
+  { pl: "Ó", gl: "\u2C16" },
+  { pl: "ó", gl: "\u2C46" },
   { pl: "P", gl: "\u2C12" },
   { pl: "p", gl: "\u2C42" },
   { pl: "R", gl: "\u2C13" },
   { pl: "r", gl: "\u2C43" },
   { pl: "S", gl: "\u2C14" },
   { pl: "s", gl: "\u2C44" },
-  { pl: "Ś", gl: "\u2C14\u2C4F" },
-  { pl: "ś", gl: "\u2C44\u2C4F" },
+  { pl: "Ś", gl: "\u2C14\u2C20" },
+  { pl: "ś", gl: "\u2C44\u2C50" },
   { pl: "Sz", gl: "\u2C1E" },
   { pl: "SZ", gl: "\u2C1E" },
   { pl: "sz", gl: "\u2C4E" },
+  { pl: "Szcz", gl: "\u2C1B" },
+  { pl: "SZCZ", gl: "\u2C1B" },
+  { pl: "szcz", gl: "\u2C4B" },
   { pl: "T", gl: "\u2C15" },
   { pl: "t", gl: "\u2C45" },
   { pl: "U", gl: "\u2C16" },
   { pl: "u", gl: "\u2C46" },
-  { pl: "W", gl: "\u2C2B" },
-  { pl: "w", gl: "\u2C5B" },
+  { pl: "W", gl: "\u2C02" },
+  { pl: "w", gl: "\u2C32" },
   { pl: "V", gl: "\u2C02" },
   { pl: "v", gl: "\u2C32" },
   // { pl: "X", gl: "" },
@@ -98,6 +97,8 @@ const characters = [
   { pl: "y", gl: "\u2C50\u2C39" },
   { pl: "Z", gl: "\u2C08" },
   { pl: "z", gl: "\u2C38" },
+  { pl: "Ź", gl: "\u2C08\u2C20" },
+  { pl: "ź", gl: "\u2C38\u2C50" },
   { pl: "Ż", gl: "\u2C06" },
   { pl: "ż", gl: "\u2C36" },
 ];
@@ -139,9 +140,7 @@ function Keyboard(lang) {
         console.log("We have a problem!!!");
       }
       let tabindex = id + 5;
-      $("#keyboard").append(
-        `<button class="key" data-value="${lang1}" tabindex="${tabindex}"><b>${lang1}</b><p>${lang2}</p></button>`
-      );
+      $("#keyboard").append(`<button class="key" data-value="${lang1}" tabindex="${tabindex}"><b>${lang1}</b><p>${lang2}</p></button>`);
     });
     if (scrollPosition !== 0) {
       $("#keyboard").scrollTop(scrollPosition);
@@ -164,11 +163,18 @@ function translateText() {
   for (let i = 0; i < word.length; i++) {
     let char = word[i];
     let combined = char + word[i + 1];
-    if (combined in dictionary) {
-      result.push(dictionary[combined] || combined);
-      i++;
+    let combinedSZCZ = combined + word[i + 2] + word[i + 3];
+    if (combinedSZCZ === "szcz") {
+      console.log(combinedSZCZ);
+      result.push(dictionary[combinedSZCZ] || combinedSZCZ);
+      i += 3;
     } else {
-      result.push(dictionary[char] || char);
+      if (combined in dictionary) {
+        result.push(dictionary[combined] || combined);
+        i++;
+      } else {
+        result.push(dictionary[char] || char);
+      }
     }
   }
   addLetters();

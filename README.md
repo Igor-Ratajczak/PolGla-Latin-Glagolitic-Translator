@@ -1,4 +1,4 @@
-# PolGla Tłumacz Site
+# PolGla Tłumacz
 
 # Polski
 

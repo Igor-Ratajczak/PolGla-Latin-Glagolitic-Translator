@@ -1,4 +1,4 @@
-# PolGla Tłumacz
+# PolGla Translator
 
 # Polski
 
@@ -16,7 +16,7 @@ Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst w alfabecie głagolicy
 
 ## Link do strony.
 
-- [PolGla Tłumacz](https://igor-ratajczak.github.io/PolGla-Tlumacz/)
+- [PolGla Translator](https://igor-ratajczak.github.io/PolGla-Translator/)
 
 # English
 
@@ -34,4 +34,4 @@ A translator that will allow you to write down any text in the Glagolitic alphab
 
 ## Link to the page.
 
-- [PolGla Tłumacz](https://igor-ratajczak.github.io/PolGla-Tlumacz/)
+- [PolGla Translator](https://igor-ratajczak.github.io/PolGla-Translator/)

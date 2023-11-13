@@ -29,7 +29,7 @@ A translator that will allow you to write down any text in the Glagolitic alphab
 ## Important!
 
 - The translator may still be underdeveloped and his translation may be incorrect, therefore you should not rely on his correct translation of the text, especially when it comes to translating from the Glagolitic alphabet.
-- Remember, this translator does not have to translate some letters, e.g. the letter **ó** will be translated as **o** because there was no **ó** in the past, so it cannot be assigned to anything. The same applies to the letter **x**, which will be translated as **x**.
+- Remember, this translator does not have special characters for a given language, only those from the Latin alphabet and diacritics from the Polish language.
 
 ## Link to the page.
 

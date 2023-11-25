@@ -127,7 +127,7 @@ var emptyInput;
 function getLanguage() {
   localStorage.getItem("language") == null ? setLanguage("pl") : false;
   localStorage.getItem("lang") == null ? localStorage.setItem("lang", "PLtoGL") : false;
-  $.getJSON(`../languages/${localStorage.getItem("language")}.json`, function (data) {
+  $.getJSON(`/languages/${localStorage.getItem("language")}.json`, function (data) {
     language = data;
     changeText(language);
     emptyInput = `${language["translator"]}`;

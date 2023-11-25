@@ -9,65 +9,64 @@
     />
     <meta
       name="keywords"
-      content="tłumacz, głagolica, polski, polski na głagolice, tłumacz polski na głagolice, translator, Glagolitic, Polish, Polish to Glagolitic, Polish to Glagolitic translator"
+      content="tłumacz, głagolica, Polski, polski na głagolice, tłumacz polski na głagolice, translator, Glagolitic, Polish, Polish to Glagolitic, translator Polish to Glagolitic"
     />
     <meta name="author" content="Igor Ratajczak" />
-    <title>Polski na Głagolice</title>
+    <meta name="theme-color" content="#006400" />
+    <title data-language="title-LG"></title>
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mobile.css" />
-    <link rel="stylesheet" href="https://igor-ratajczak.github.io/Main-css/version/1.0/main.min.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
     <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script src="https://www.jacklmoore.com/js/autosize.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
   </head>
-
   <body class="overflow-x-hidden">
     <div id="root" class="grid height-max">
       <nav class="grid grid-cl-1-2 grid-row-1-2">
-        <div id="image" class="grid">
+        <div id="image" class="grid grid-cl-1-4 grid-row-1-2">
           <img id="mainImg" src="img/keyNile-340x225.png" alt="obraz klucza Nilu" />
           <img id="mobileImg" src="img/keyNile-217x144.png" class="none" alt="obraz klucza Nilu na telefon" />
+        </div>
+        <div class="container-change-language grid grid-cl-3-4 grid-row-1-2">
+          <button id="change-language" class="outline-10px outline-groove font-w-900" type="button" data-language="button-change-language"></button>
         </div>
       </nav>
       <main class="grid grid-row-2-3">
         <div class="translator grid grid-cl-2-3 grid-row-2-3 height-max bg-red-700">
           <div id="translator-bar" class="grid grid-cl-1-3">
             <div id="lang-1" class="grid-cl-1-2" lang="pl">
-              <b class="text-language font-f-sans-serif font-w-700 font-25px grid jst-cnt-center">POLSKI</b>
+              <b class="text-language font-f-sans-serif font-w-700 font-25px grid jst-cnt-center"></b>
             </div>
-            <div id="change_language" class="font-40px user-s-none grid-cl-2-3 cursor-pointer border-none" tabindex="0">
+            <div id="change_language" class="font-40px user-s-none grid-cl-2-3 cursor-pointer border-none">
               <b>⇄</b>
             </div>
             <div id="lang-2" class="grid-cl-3-4" lang="gl">
-              <b class="text-language font-f-sans-serif font-w-700 font-25px grid jst-cnt-center">GŁAGOLICA (ⰃⰟⰎⰀⰃⰙⰎⰉⰜⰀ)</b>
+              <b class="text-language font-f-sans-serif font-w-700 font-25px grid jst-cnt-center"></b>
             </div>
           </div>
           <div id="box-translator" class="grid height-max">
-            <div id="input_text" class="border-20 anime-border-stop border-groove">
+            <div id="input_text" class="border-20px anime-border-stop border-groove">
               <textarea
                 aria-label="Tekst źródłowy"
                 aria-autocomplete="list"
-                aria-expanded="false"
                 name="source-text"
                 class="source-text"
                 autocomplete="off"
                 autocorrect="off"
-                role="combobox"
                 placeholder=""
                 spellcheck="false"
                 autofocus=""
                 wrap="hard"
-                tabindex="1"
               ></textarea>
             </div>
-            <div id="box-translated" class="border-20 anime-border-stop border-groove">
-              <div class="translated-text grid font-25px overflow-w-anywhere" tabindex="2">Tłumaczenie...</div>
+            <div id="box-translated" class="border-20px anime-border-stop border-groove">
+              <div class="translated-text grid font-25px overflow-w-anywhere" data-language="translator"></div>
             </div>
           </div>
         </div>
         <div id="copy-translate-text" class="grid grid-cl-2-3 grid-row-3-4">
-          <button id="copy-button" type="button" class="border-r-50 border-red cursor-pointer" tabindex="3">Skopiuj tłumaczenie</button>
+          <button id="copy-button" type="button" class="border-r-50 border-red cursor-pointer" data-language="copy-text"></button>
         </div>
       </main>
       <footer class="grid grid-cl-1-2 grid-row-3-4 user-s-none">
@@ -77,8 +76,8 @@
         document.getElementById("footer-text").innerHTML = "Copyright &copy; 2023-" + new Date().getFullYear() + " Igor Ratajczak All Rights Reserved";
       </script>
       <keyboard class="grid sticky grid-cl-3-4">
-        <button id="toggleKeyboard" type="button" tabindex="4">
-          <b class="font-20px">Ukryj klawiaturę</b>
+        <button id="toggleKeyboard" type="button">
+          <b class="font-20px" data-language="hide-keyboard"></b>
         </button>
         <div id="keyboard" class="grid overflow-x-hidden overflow-y-scroll"></div>
       </keyboard>

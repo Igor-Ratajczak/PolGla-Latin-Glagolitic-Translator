@@ -107,25 +107,93 @@ const characters = [
 ];
 const PLtoGL = {};
 const GLtoPL = {};
-const emptyInput = `Tłumaczenie...`;
 for (const char of characters) {
   PLtoGL[char.pl] = char.gl;
   GLtoPL[char.gl] = char.pl;
 }
+window.addEventListener("load", () => {
+  window.addEventListener("online", () => {
+    // Run getLanguage to online when they change to online.
+    getLanguage();
+  });
+
+  window.addEventListener("offline", () => {
+    // Run getLanguage to offline when they change to offline.
+    getLanguage();
+  });
+});
+var language;
+var emptyInput;
+function getLanguage() {
+  localStorage.getItem("language") == null ? setLanguage("pl") : false;
+  localStorage.getItem("lang") == null ? localStorage.setItem("lang", "PLtoGL") : false;
+  $.getJSON(`../languages/${localStorage.getItem("language")}.json`, function (data) {
+    language = data;
+    changeText(language);
+    emptyInput = `${language["translator"]}`;
+    textURL("read");
+  });
+}
+function setLanguage(lang) {
+  localStorage.setItem("language", lang);
+  getLanguage();
+}
+$("button#change-language").on("click", function () {
+  setLanguage(`${localStorage.getItem("language") == "en" ? "pl" : "en"}`);
+  $(this).attr("lang", localStorage.getItem("language") == "en" ? "pl" : "en");
+});
+getLanguage();
+function changeText(data) {
+  $("[data-language]").each((e) => {
+    let languageData = $("[data-language]").get(e).getAttribute("data-language");
+    $("[data-language]").get(e).innerHTML = data[languageData];
+  });
+  checkLang();
+  textURL("read");
+}
 
 /******** check source-text is empty or not ********/
 $(".source-text").on("input", function (e) {
+  textURL("write");
   if (e.target.value === "") {
     $(".translated-text").text(emptyInput);
     $(this).removeAttr("style");
   } else {
-    translateText();
+    translateText($(this).val());
     $(this).height(0).height(this.scrollHeight);
-    $("#text-translated").height(0).height(this.scrollHeight);
   }
 });
-
-/******** Keyboard ********/
+/**
+ * Add text to translate to URL
+ */
+function textURL(option) {
+  if (option === "write") {
+    if (history.pushState) {
+      let text = $(".source-text").val();
+      if (text === "") {
+        var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + ``;
+        window.history.pushState({ path: newURL }, "", newURL);
+      } else {
+        var newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + `?text=${text}`;
+        window.history.pushState({ path: newURL }, "", newURL);
+      }
+    }
+  } else if (option === "read") {
+    let params = new URL(document.location).searchParams;
+    let text = params.get("text");
+    if (text === null) {
+      $(".translated-text").text(`${language["translator"]}`);
+    } else {
+      $(".source-text").val(text);
+      translateText(text);
+    }
+  } else {
+    alert("Wystąpił problem proszę odświeżyć stronę.We have a problem, please reload the page.");
+  }
+}
+/**
+ *  Create keyboard
+ */
 function Keyboard(lang) {
   let scrollPosition = $("#keyboard").scrollTop();
   $("#keyboard").html("");
@@ -142,8 +210,7 @@ function Keyboard(lang) {
       } else {
         console.log("We have a problem!!!");
       }
-      let tabindex = id + 5;
-      $("#keyboard").append(`<button class="key" data-value="${lang1}" tabindex="${tabindex}"><b>${lang1}</b><p>${lang2}</p></button>`);
+      $("#keyboard").append(`<button class="key" data-value="${lang1}"><b>${lang1}</b><p>${lang2}</p></button>`);
     });
     if (scrollPosition !== 0) {
       $("#keyboard").scrollTop(scrollPosition);
@@ -156,13 +223,15 @@ function Keyboard(lang) {
   });
 }
 
-/******** translate text ********/
-function translateText() {
-  let string = $(".source-text").val();
-  let word = string;
+/**
+ *  Translate text
+ * @param {string} text Text to translate
+ */
+function translateText(text) {
+  let word = text;
   let result = [];
   let addLetters = () => $(".translated-text").html(result);
-  let dictionary = $("#lang-1").attr("lang") === "pl" ? PLtoGL : GLtoPL;
+  let dictionary = localStorage.getItem("lang") === "PLtoGL" ? PLtoGL : GLtoPL;
   for (let i = 0; i < word.length; i++) {
     let char = word[i];
     let combined = char + word[i + 1];
@@ -183,39 +252,52 @@ function translateText() {
   addLetters();
 }
 /******** change language ********/
-$(function () {
-  $("#change_language").on("click", function () {
-    let lang1 = $("#lang-1");
-    let lang2 = $("#lang-2");
-    let lang = lang1.attr("lang");
-    if (lang === "pl") {
-      lang1.attr("lang", "gl");
-      lang2.attr("lang", "pl");
-      $("#lang-1 > .text-language").html("GŁAGOLICA (ⰃⰎⰟⰀⰃⰑⰎⰋⰜⰀ)");
-      $("#lang-2 > .text-language").html("POLSKI");
-      Keyboard("GLtoPL");
-    } else if (lang === "gl") {
-      lang1.attr("lang", "pl");
-      lang2.attr("lang", "gl");
-      $("#lang-1 > .text-language").html("POLSKI");
-      $("#lang-2 > .text-language").html("GŁAGOLICA (ⰃⰎⰟⰀⰃⰑⰎⰋⰜⰀ)");
-      Keyboard("PLtoGL");
-    }
-    let inputTranslateText = $(".translated-text");
-    let textareaInputText = $(".source-text");
-    if (textareaInputText.val() === "") {
-      textareaInputText.val();
-      inputTranslateText.html(emptyInput);
-    } else {
-      textareaInputText.val(inputTranslateText.html());
-    }
-    if ($(".translated-text").html() === emptyInput) {
-    } else {
-      translateText();
-    }
-  });
+$("#change_language").on("click", function () {
+  changeLang();
 });
-Keyboard("PLtoGL");
+function changeLang() {
+  let lang = localStorage.getItem("lang");
+  if (lang === "PLtoGL") {
+    localStorage.setItem("lang", "GLtoPL");
+  } else if (lang === "GLtoPL") {
+    localStorage.setItem("lang", "PLtoGL");
+  }
+  let inputTranslateText = $(".translated-text");
+  let textareaInputText = $(".source-text");
+  if (textareaInputText.val() === "") {
+    textareaInputText.val();
+    inputTranslateText.text(emptyInput);
+  } else {
+    textareaInputText.val(inputTranslateText.text());
+    textareaInputText.height(0).height(textareaInputText[0].scrollHeight);
+    textURL("write");
+  }
+  if ($(".translated-text").text() === emptyInput) {
+  } else {
+    textURL("read");
+  }
+  checkLang();
+}
+function checkLang() {
+  let lang1 = $("#lang-1");
+  let lang2 = $("#lang-2");
+  let lang = localStorage.getItem("lang");
+  if (lang === "PLtoGL") {
+    lang1.attr("lang", "pl");
+    lang2.attr("lang", "gl");
+    $("#lang-1 > .text-language").html(`${language["translator-text-first"]}`);
+    $("#lang-2 > .text-language").html(`${language["translator-text-second"]}`);
+    $("title").text(`${language["title-LG"]}`);
+    Keyboard("PLtoGL");
+  } else if (lang === "GLtoPL") {
+    lang1.attr("lang", "gl");
+    lang2.attr("lang", "pl");
+    $("#lang-1 > .text-language").html(`${language["translator-text-second"]}`);
+    $("#lang-2 > .text-language").html(`${language["translator-text-first"]}`);
+    $("title").text(`${language["title-GL"]}`);
+    Keyboard("GLtoPL");
+  }
+}
 $("#toggleKeyboard").on("click", function () {
   $("#keyboard").toggle();
   if ($(this).children("u").text() === "Ukryj klawiaturę") {
@@ -226,6 +308,39 @@ $("#toggleKeyboard").on("click", function () {
 });
 // copy translate text
 $("#copy-button").on("click", function () {
-  let copyText = $(".translated-text").text();
-  navigator.clipboard.writeText(copyText);
+  let text = $(".translated-text").text();
+  navigator.clipboard.writeText(text);
 });
+/** Service worker start */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("./sw.js", {
+      scope: "/",
+    })
+    .then((registration) => {
+      let serviceWorker;
+      if (registration.installing) {
+        serviceWorker = registration.installing;
+        document.querySelector("#kind").textContent = "installing";
+      } else if (registration.waiting) {
+        serviceWorker = registration.waiting;
+        document.querySelector("#kind").textContent = "waiting";
+      } else if (registration.active) {
+        serviceWorker = registration.active;
+        document.querySelector("#kind").textContent = "active";
+      }
+      if (serviceWorker) {
+        // logState(serviceWorker.state);
+        serviceWorker.addEventListener("statechange", (e) => {
+          // logState(e.target.state);
+        });
+      }
+    })
+    .catch((error) => {
+      // Something went wrong during registration. The service-worker.js file
+      // might be unavailable or contain a syntax error.
+    });
+} else {
+  // The current browser doesn't support service workers.
+  // Perhaps it is too old or we are not in a Secure Context.
+}

@@ -314,7 +314,7 @@ $("#copy-button").on("click", function () {
 /** Service worker start */
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("../sw.js", {
+    .register("./sw.js", {
       scope: "/",
     })
     .then((registration) => {

@@ -83,7 +83,7 @@ self.addEventListener("install", (event) => {
       "./icon.png",
       "./manifest.webmanifest",
       "./img/",
-      "./img/icon-384x384.png",
+      "./img/icon-384x238.png",
       "./img/keyNile-217x144.png",
       "./img/keyNile-340x225.png",
     ])

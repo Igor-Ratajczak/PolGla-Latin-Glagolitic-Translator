@@ -71,21 +71,21 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("install", (event) => {
   event.waitUntil(
     addResourcesToCache([
-      "/",
-      "./index.html",
-      "./css/style.css",
-      "./css/main.min.css",
-      "./css/mobile.css",
-      "./js/script.js",
-      "./js/jquery-3.7.1.min.js",
-      "./languages/en.json",
-      "./languages/pl.json",
-      "./icon.png",
-      "./manifest.webmanifest",
-      "./img/",
-      "./img/icon-384x238.png",
-      "./img/keyNile-217x144.png",
-      "./img/keyNile-340x225.png",
+      "/PolGla-Latin-Glagolitic-Translator/",
+      "/PolGla-Latin-Glagolitic-Translator/index.html",
+      "/PolGla-Latin-Glagolitic-Translator/css/style.css",
+      "/PolGla-Latin-Glagolitic-Translator/css/main.min.css",
+      "/PolGla-Latin-Glagolitic-Translator/css/mobile.css",
+      "/PolGla-Latin-Glagolitic-Translator/js/script.js",
+      "/PolGla-Latin-Glagolitic-Translator/js/jquery-3.7.1.min.js",
+      "/PolGla-Latin-Glagolitic-Translator/languages/en.json",
+      "/PolGla-Latin-Glagolitic-Translator/languages/pl.json",
+      "/PolGla-Latin-Glagolitic-Translator/icon.png",
+      "/PolGla-Latin-Glagolitic-Translator/manifest.webmanifest",
+      "/PolGla-Latin-Glagolitic-Translator/img/",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-384x238.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/keyNile-217x144.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/keyNile-340x225.png",
     ])
   );
 });

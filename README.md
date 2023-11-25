@@ -1,4 +1,4 @@
-# PolGla Latin Translator
+# PolGla Latin Glagolitic Translator
 
 # Polski
 
@@ -16,7 +16,7 @@ Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst z alfabetu łacińskie
 
 ## Link do strony.
 
-- [PolGla Latin Translator](https://igor-ratajczak.github.io/PolGla-Latin-Translator/)
+- [PolGla Latin Glagolitic Translator](https://igor-ratajczak.github.io/PolGla-Latin-Glagolitic-Translator/)
 
 # English
 
@@ -34,4 +34,4 @@ A translator that will allow you to write any text from the Latin alphabet into 
 
 ## Link to the page.
 
-- [PolGla Latin Translator](https://igor-ratajczak.github.io/PolGla-Latin-Translator/)
+- [PolGla Latin Glagolitic Translator](https://igor-ratajczak.github.io/PolGla-Latin-Glagolitic-Translator/)

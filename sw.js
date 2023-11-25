@@ -82,7 +82,6 @@ self.addEventListener("install", (event) => {
       "/PolGla-Latin-Glagolitic-Translator/languages/pl.json",
       "/PolGla-Latin-Glagolitic-Translator/icon.png",
       "/PolGla-Latin-Glagolitic-Translator/manifest.webmanifest",
-      "/PolGla-Latin-Glagolitic-Translator/img/",
       "/PolGla-Latin-Glagolitic-Translator/img/icon-384x238.png",
       "/PolGla-Latin-Glagolitic-Translator/img/keyNile-217x144.png",
       "/PolGla-Latin-Glagolitic-Translator/img/keyNile-340x225.png",

@@ -314,8 +314,8 @@ $("#copy-button").on("click", function () {
 /** Service worker start */
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("./sw.js", {
-      scope: "./",
+    .register("/PolGla-Latin-Glagolitic-Translator/sw.js", {
+      scope: "/PolGla-Latin-Glagolitic-Translator/",
     })
     .then((registration) => {
       let serviceWorker;

@@ -218,7 +218,7 @@ function Keyboard(lang) {
     $(".key").on("click", function () {
       let sourceText = $(".source-text").val();
       $(".source-text").val(sourceText + $(this).children("b").text());
-      translateText();
+      translateText($(".source-text").val());
     });
   });
 }

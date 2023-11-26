@@ -88,11 +88,30 @@ self.addEventListener("install", (event) => {
     ])
   );
 });
+
 self.addEventListener("fetch", (event) => {
   // Cache-First Strategy
+  const request = event.request;
+  const urlWithoutParams = new URL(request.url).pathname;
+
   event.respondWith(
-    caches
-      .match(event.request) // check if the request has already been cached
-      .then((cached) => cached || fetch(event.request)) // otherwise request network
+    caches.match(urlWithoutParams).then((cached) => {
+      if (cached) {
+        return cached;
+      }
+
+      // Otherwise, fetch from the network
+      return fetch(request).then((response) => {
+        // Cache the response
+        if (response && response.status === 200) {
+          const responseToCache = response.clone();
+          caches.open("v1").then((cache) => {
+            cache.put(urlWithoutParams, responseToCache);
+          });
+        }
+
+        return response;
+      });
+    })
   );
 });

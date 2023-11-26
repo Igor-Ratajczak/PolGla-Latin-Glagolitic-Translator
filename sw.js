@@ -1,11 +1,26 @@
+let version = "v1";
 const addResourcesToCache = async (resources) => {
-  const cache = await caches.open("v1");
+  const cache = await caches.open(version);
   await cache.addAll(resources);
 };
 
 const putInCache = async (request, response) => {
-  const cache = await caches.open("v1");
+  const cache = await caches.open(version);
   await cache.put(request, response);
+};
+const deleteOldCaches = async () => {
+  console.log("Deleting old caches...");
+  const cacheKeepList = [version];
+  const keyList = await caches.keys();
+  const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
+
+  await Promise.all(
+    cachesToDelete.map(async (key) => {
+      await caches.delete(key);
+      console.log(`Cache ${key} deleted.`);
+    })
+  );
+  console.log("Old caches deleted.");
 };
 
 const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
@@ -49,23 +64,17 @@ const cacheFirst = async ({ request, preloadResponsePromise, fallbackUrl }) => {
 // Enable navigation preload
 const enableNavigationPreload = async () => {
   if (self.registration.navigationPreload) {
-    await self.registration.navigationPreload.enable();
+    try {
+      await self.registration.navigationPreload.enable();
+      console.log("Navigation preload enabled successfully.");
+    } catch (error) {
+      console.error("Error enabling navigation preload:", error);
+    }
   }
-};
-const deleteCache = async (key) => {
-  await caches.delete(key);
-};
-
-const deleteOldCaches = async () => {
-  const cacheKeepList = ["v1"];
-  const keyList = await caches.keys();
-  const cachesToDelete = keyList.filter((key) => !cacheKeepList.includes(key));
-  await Promise.all(cachesToDelete.map(deleteCache));
 };
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(deleteOldCaches());
-  event.waitUntil(enableNavigationPreload());
+  event.waitUntil(Promise.all([enableNavigationPreload(), deleteOldCaches()]));
 });
 
 self.addEventListener("install", (event) => {
@@ -82,11 +91,18 @@ self.addEventListener("install", (event) => {
       "/PolGla-Latin-Glagolitic-Translator/languages/pl.json",
       "/PolGla-Latin-Glagolitic-Translator/icon.png",
       "/PolGla-Latin-Glagolitic-Translator/manifest.webmanifest",
-      "/PolGla-Latin-Glagolitic-Translator/img/icon-384x238.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-48x48.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-144x144.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-192x192.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-256x256.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-320x320.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-384x384.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/icon-512x512.png",
       "/PolGla-Latin-Glagolitic-Translator/img/keyNile-217x144.png",
       "/PolGla-Latin-Glagolitic-Translator/img/keyNile-340x225.png",
     ])
   );
+  skipWaiting();
 });
 
 self.addEventListener("fetch", (event) => {
@@ -105,7 +121,7 @@ self.addEventListener("fetch", (event) => {
         // Cache the response
         if (response && response.status === 200) {
           const responseToCache = response.clone();
-          caches.open("v1").then((cache) => {
+          caches.open(version).then((cache) => {
             cache.put(urlWithoutParams, responseToCache);
           });
         }

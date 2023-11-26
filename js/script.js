@@ -219,6 +219,7 @@ function Keyboard(lang) {
       let sourceText = $(".source-text").val();
       $(".source-text").val(sourceText + $(this).children("b").text());
       translateText($(".source-text").val());
+      textURL("write");
     });
   });
 }

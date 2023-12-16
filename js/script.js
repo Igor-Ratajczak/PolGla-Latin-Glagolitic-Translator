@@ -186,10 +186,18 @@ function textURL(option) {
     } else {
       $(".source-text").val(text);
       translateText(text);
+      resizeInputs();
     }
   } else {
     alert("Wystąpił problem proszę odświeżyć stronę.We have a problem, please reload the page.");
   }
+}
+/**
+ * Resize textarea with source text
+ */
+function resizeInputs() {
+  let textareaInputText = $(".source-text");
+  textareaInputText.height(textareaInputText[0].scrollHeight);
 }
 /**
  *  Create keyboard
@@ -263,20 +271,7 @@ function changeLang() {
   } else if (lang === "GLtoPL") {
     localStorage.setItem("lang", "PLtoGL");
   }
-  let inputTranslateText = $(".translated-text");
-  let textareaInputText = $(".source-text");
-  if (textareaInputText.val() === "") {
-    textareaInputText.val();
-    inputTranslateText.text(emptyInput);
-  } else {
-    textareaInputText.val(inputTranslateText.text());
-    textareaInputText.height(0).height(textareaInputText[0].scrollHeight);
-    textURL("write");
-  }
-  if ($(".translated-text").text() === emptyInput) {
-  } else {
-    textURL("read");
-  }
+  resizeInputs();
   checkLang();
 }
 function checkLang() {

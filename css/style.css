@@ -31,7 +31,7 @@ textarea {
   outline: none;
   font-family: monospace !important;
   padding: 20px;
-  min-height: 350px;
+  min-height: 250px;
   width: 100%;
 }
 textarea#source-text {
@@ -94,6 +94,9 @@ button {
 #box-translator {
   grid-template-columns: 50% 50%;
   grid-template-rows: 100%;
+}
+div#box-translated {
+  min-height: 250px;
 }
 #footer-text {
   color: white;

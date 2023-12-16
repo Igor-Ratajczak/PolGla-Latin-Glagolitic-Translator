@@ -9,13 +9,14 @@
 @media screen and (max-width: 810px) {
   #box-translator {
     grid-template-columns: 100%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: auto auto;
   }
   #mainImg {
     display: none;
   }
   #mobileImg {
     display: block;
+    width: 100%;
   }
   .translated-text,
   #input_text > textarea {
@@ -43,5 +44,14 @@
   #change-language {
     width: 95% !important;
     height: 30% !important;
+  }
+  nav {
+    grid-template-columns: 75% 25%;
+  }
+  #image {
+    grid-column: 1/2 !important;
+  }
+  .container-change-language {
+    grid-column: 2/3 !important;
   }
 }

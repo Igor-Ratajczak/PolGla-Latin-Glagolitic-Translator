@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Pacifico;
+  src: url(../font/Pacifico-Regular.ttf);
+}
 * {
   color: black;
 }
@@ -7,7 +11,9 @@ body {
   height: 100vh;
 }
 #root {
-  grid-template-columns: 84% 2% 14%;
+  grid-template-columns: 84% auto;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
 }
 nav {
   grid-template-columns: calc(100% / 3);
@@ -21,6 +27,13 @@ footer {
   color: white;
   text-align: center;
   place-items: center;
+}
+#main-text {
+  color: gainsboro;
+  font-family: Pacifico;
+  font-size: 45px;
+  align-self: center;
+  text-align: center;
 }
 textarea {
   vertical-align: top;

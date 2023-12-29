@@ -47,11 +47,18 @@
   }
   nav {
     grid-template-columns: 75% 25%;
+    grid-template-rows: 20% 80%;
+  }
+  #main-text {
+    grid-column: 1/3;
+    grid-row: 1/2;
   }
   #image {
     grid-column: 1/2 !important;
+    grid-row: 2/3 !important;
   }
   .container-change-language {
     grid-column: 2/3 !important;
+    grid-row: 2/3 !important;
   }
 }

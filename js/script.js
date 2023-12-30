@@ -129,8 +129,9 @@ function getLanguage() {
   localStorage.getItem("lang") == null ? localStorage.setItem("lang", "PLtoGL") : false;
   $.getJSON(`./languages/${localStorage.getItem("language")}.json`, function (data) {
     language = data;
-    changeText(language);
+
     emptyInput = `${language["translator"]}`;
+    changeText(language);
     textURL("read");
   });
 }
@@ -189,7 +190,7 @@ function textURL(option) {
       resizeInputs();
     }
   } else {
-    alert("Wystąpił problem proszę odświeżyć stronę.We have a problem, please reload the page.");
+    alert("Wystąpił problem proszę odświeżyć stronę. We have a problem, please reload the page.");
   }
 }
 /**
@@ -197,7 +198,7 @@ function textURL(option) {
  */
 function resizeInputs() {
   let textareaInputText = $(".source-text");
-  textareaInputText.height(textareaInputText[0].scrollHeight);
+  textareaInputText.height(0).height(textareaInputText[0].scrollHeight);
 }
 /**
  *  Create keyboard
@@ -271,13 +272,15 @@ function changeLang() {
   } else if (lang === "GLtoPL") {
     localStorage.setItem("lang", "PLtoGL");
   }
-  resizeInputs();
   checkLang();
+  resizeInputs();
 }
 function checkLang() {
   let lang1 = $("#lang-1");
   let lang2 = $("#lang-2");
   let lang = localStorage.getItem("lang");
+  let source_text = $(".source-text");
+  let translate_text = $(".translated-text").text();
   if (lang === "PLtoGL") {
     lang1.attr("lang", "pl");
     lang2.attr("lang", "gl");
@@ -292,6 +295,12 @@ function checkLang() {
     $("#lang-2 > .text-language").html(`${language["translator-text-first"]}`);
     $("title").text(`${language["title-GL"]}`);
     Keyboard("GLtoPL");
+  }
+  if (translate_text === emptyInput) {
+  } else {
+    source_text.val(translate_text);
+    textURL("write");
+    translateText(translate_text);
   }
 }
 $("#toggleKeyboard").on("click", function () {

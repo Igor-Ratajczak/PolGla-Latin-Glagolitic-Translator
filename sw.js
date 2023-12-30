@@ -1,4 +1,4 @@
-let version = "v3";
+let version = "v1";
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open(version);
   await cache.addAll(resources);
@@ -89,7 +89,7 @@ self.addEventListener("install", (event) => {
       "/PolGla-Latin-Glagolitic-Translator/js/jquery-3.7.1.min.js",
       "/PolGla-Latin-Glagolitic-Translator/languages/en.json",
       "/PolGla-Latin-Glagolitic-Translator/languages/pl.json",
-      "/PolGla-Latin-Glagolitic-Translator/icon.png",
+      "/PolGla-Latin-Glagolitic-Translator/favicon.ico",
       "/PolGla-Latin-Glagolitic-Translator/font/Pacifico-Regular.ttf",
       "/PolGla-Latin-Glagolitic-Translator/manifest.webmanifest",
       "/PolGla-Latin-Glagolitic-Translator/img/icon-48x48.png",

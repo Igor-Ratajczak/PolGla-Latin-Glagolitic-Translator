@@ -1,7 +1,7 @@
 {
   "name": "PolGla Latin Glagolitic Translator",
   "short_name": "PolGla",
-  "description": "Tłumacz, który pozwoli tobie zapisać jakikolwiek tekst z alfabetu łacińskiego na alfabet głagolicy oraz go odczytać. A translator that will allow you to write any text from the Latin alphabet into the Glagolitic alphabet and read it.",
+  "description": "Przetłumacz tekst między alfabetami łacińskim i głagolickim dzięki temu narzędziu. Translate text between Latin and Glagolitic alphabets with this tool.",
   "icons": [
     {
       "src": "img/icon-48x48.png",

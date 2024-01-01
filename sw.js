@@ -1,4 +1,4 @@
-let version = "v12";
+let version = "v1";
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open(version);
   await cache.addAll(resources);

@@ -349,3 +349,9 @@ if ("serviceWorker" in navigator) {
   // The current browser doesn't support service workers.
   // Perhaps it is too old or we are not in a Secure Context.
 }
+$(".about > svg").on("click", function () {
+  $(this).parent().children(".hide-text").removeClass("hide-about").addClass("show-about");
+});
+$(".close").on("click", function () {
+  $(this).parent(".hide-text").removeClass("show-about").addClass("hide-about");
+});

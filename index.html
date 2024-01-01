@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Przetłumacz tekst między alfabetami łacińskim i głagolickim dzięki temu narzędziu. Translate text between Latin and Glagolitic alphabets with this tool."
+      content="PolGla Translator - Tłumaczenie tekstu z alfabetu Łacińskiego lub Polskiego na Głagolice. Translate text from the Latin or Polish alphabet to Glagolitic."
     />
     <meta
       name="keywords"
@@ -15,21 +15,61 @@
     <meta name="theme-color" content="#006400" />
     <meta name="google-site-verification" content="jmsWxWcCSTiOpJRWk2KNm7blgZyU5BPGwIp8O6rBcro" />
     <title data-language="title-LG">PolGla Latin Glagolitic Translator</title>
-    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/mobile.css" />
     <link rel="stylesheet" href="css/main.min.css" />
-    <link rel="apple-touch-icon" href="./favicon.ico" />
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <script src="js/jquery-3.7.1.min.js"></script>
   </head>
   <body class="overflow-x-hidden">
     <div id="root" class="grid height-max">
       <nav class="grid grid-cl-1-2 grid-row-1-2">
-        <h1 id="main-text" class="grid grid-cl-1-2 grid-row-1-2">PolGla Latin Glagolitic Translator</h1>
+        <div id="main-text" class="grid grid-cl-1-2 grid-row-1-2">
+          <h1 class="grid-cl-1-2">PolGla Latin Glagolitic Translator</h1>
+          <div class="about cursor-pointer flex grid-cl-2-3">
+            <div class="popup-text" data-language="about"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" viewBox="0 0 512 512">
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                fill="#ffffff"
+                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+              />
+            </svg>
+            <div class="hide-text cursor-auto">
+              <div class="close cursor-pointer">X</div>
+              <b>Polski:</b>
+              <br />
+              <br />
+              <h2>PolGla Latin Glagolitic Translator -</h2>
+              <br />
+              <p>
+                to narzędzie umożliwiające tłumaczenie tekstu z alfabetu łacińskiego lub polskiego na alfabet głagolicki oraz na odwrót. Funkcje naszego translatora sprawiają, że
+                korzystanie z niego jest łatwe i wygodne: Każdy wprowadzony tekst jest kopiowany do adresu URL, co pozwala na przywrócenie tekstu po zamknięciu strony, podobnie jak
+                w przypadku Google Translate. Klawiatura ułatwia wprowadzanie znaków z alfabetu głagolickiego, jeśli dany znak nie może być skopiowany i wklejony do translatora.
+                Dwujęzyczna strona internetowa, która umożliwia zmianę języka strony na angielski lub polski. Sprawdź nasz translator i łatwo przenoś swoje teksty między różnymi
+                alfabetami!
+              </p>
+              <br />
+              <br />
+              <b>English:</b>
+              <br />
+              <br />
+              <h2>PolGla Latin Glagolitic Translator -</h2>
+              <br />
+              <p>
+                is a tool designed for translating text from the Latin or Polish alphabet into the Glagolitic alphabet and vice versa. Our translator comes with features that make
+                it easy and convenient to use: Each entered text is copied to the URL, allowing you to restore it after closing the page, similar to Google Translate's
+                functionality. A keyboard assists in entering characters from the Glagolitic alphabet if a particular character cannot be copied and pasted into the translator. A
+                bilingual website that allows you to switch the language to English or Polish. Try our translator and effortlessly move your texts between different alphabets!
+              </p>
+            </div>
+          </div>
+        </div>
         <div id="image" class="grid grid-cl-2-3 grid-row-1-2">
-          <img id="mainImg" src="img/keyNile-340x225.png" alt="obraz klucza Nilu" />
-          <img id="mobileImg" src="img/keyNile-217x144.png" class="none" alt="obraz klucza Nilu na telefon" />
+          <img id="mainImg" src="img/keyNile-340x225.png" width="340" height="225" alt="obraz klucza Nilu" />
+          <img id="mobileImg" src="img/keyNile-217x144.png" width="217" height="144" class="none" alt="obraz klucza Nilu na telefon" />
         </div>
         <div class="container-change-language grid grid-cl-3-4 grid-row-1-2">
           <button id="change-language" class="outline-5px outline-groove font-w-900" type="button" data-language="button-change-language"></button>

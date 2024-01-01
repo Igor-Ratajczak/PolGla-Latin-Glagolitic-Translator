@@ -87,6 +87,21 @@ h1 {
   text-align: left;
   transform: translateX(-100%);
   transition: transform 1s ease-in-out;
+  overflow-y: auto;
+  scrollbar-width: 8px;
+  scrollbar-color: gray black;
+}
+.hide-text::-webkit-scrollbar {
+  width: 8px;
+}
+.hide-text::-webkit-scrollbar-track {
+  background: black;
+}
+.hide-text::-webkit-scrollbar-thumb {
+  background: gray;
+}
+.hide-text::-webkit-scrollbar-thumb:hover {
+  background: rgb(175, 175, 175);
 }
 .show-about {
   transform: translateX(0);
@@ -97,6 +112,7 @@ h1 {
 
 .hide-text > h2 {
   color: burlywood;
+  margin-top: 1em;
 }
 
 .hide-text > b {
@@ -108,6 +124,20 @@ h1 {
   color: white;
   word-break: break-word;
   text-indent: 40px;
+  margin-top: 1em;
+}
+.hide-text > ul {
+  font-size: 25px;
+  color: orangered;
+  word-break: break-word;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.hide-text > ul > li {
+  font-size: 20px;
+  color: white;
+  word-break: break-word;
+  margin-top: 1em;
 }
 .close {
   color: gray;

@@ -3,7 +3,7 @@
     font-size: 20px !important;
   }
   #change-language {
-    font-size: 50% !important;
+    font-size: 10px !important;
   }
 }
 @media screen and (max-width: 810px) {
@@ -16,37 +16,36 @@
   }
   #mobileImg {
     display: block;
-    width: 100%;
   }
   .translated-text,
   #input_text > textarea {
     font-size: 30px !important;
   }
-  #change-language {
-    width: 55% !important;
-    height: 30% !important;
+  .about > svg {
+    width: 30px;
+    height: 30px;
   }
   * {
     font-size: 15px !important;
   }
 }
 @media screen and (max-width: 630px) {
-  /* * {
-    font-size: 8px !important;
-  } */
+  #root {
+    grid-template-columns: 85% 15% !important;
+  }
+  .about > svg {
+    width: 15px;
+    height: 15px;
+  }
   .translated-text,
   #input_text > textarea {
-    font-size: 30px !important;
+    font-size: 15px !important;
   }
   #toggleKeyboard > b {
     font-size: 10px !important;
   }
-  #change-language {
-    width: 95% !important;
-    height: 30% !important;
-  }
   nav {
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 20% 80%;
   }
   #main-text {
@@ -63,5 +62,16 @@
   .container-change-language {
     grid-column: 2/3 !important;
     grid-row: 2/3 !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  * {
+    font-size: 10px !important;
+  }
+  #root {
+    grid-template-columns: 80% 20% !important;
+  }
+  #change-language {
+    font-size: 6px !important;
   }
 }

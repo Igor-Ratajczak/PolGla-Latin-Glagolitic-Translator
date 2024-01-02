@@ -53,6 +53,9 @@
     grid-column: 1/3;
     grid-row: 1/2;
   }
+  .hide-text {
+    width: 100% !important;
+  }
   #image {
     grid-column: 1/2 !important;
     grid-row: 2/3 !important;

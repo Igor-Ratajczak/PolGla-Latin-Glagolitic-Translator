@@ -130,7 +130,7 @@ h1 {
   text-indent: 40px;
   margin-top: 1em;
 }
-.hide-text > ul {
+.hide-text > h3 {
   font-size: 25px;
   color: orangered;
   word-break: break-word;

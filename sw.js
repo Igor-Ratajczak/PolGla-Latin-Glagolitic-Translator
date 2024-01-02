@@ -99,8 +99,8 @@ self.addEventListener("install", (event) => {
       "/PolGla-Latin-Glagolitic-Translator/img/icon-320x320.png",
       "/PolGla-Latin-Glagolitic-Translator/img/icon-384x384.png",
       "/PolGla-Latin-Glagolitic-Translator/img/icon-512x512.png",
-      "/PolGla-Latin-Glagolitic-Translator/img/keyNile-217x144.png",
-      "/PolGla-Latin-Glagolitic-Translator/img/keyNile-340x225.png",
+      "/PolGla-Latin-Glagolitic-Translator/img/key-100.webp",
+      "/PolGla-Latin-Glagolitic-Translator/img/key-200.webp",
     ])
   );
   skipWaiting();

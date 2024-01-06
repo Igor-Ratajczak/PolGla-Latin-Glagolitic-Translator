@@ -92,6 +92,7 @@ h1 {
   scrollbar-width: 8px;
   scrollbar-color: gray black;
   z-index: 11;
+  padding-top: 2em;
 }
 .hide-text::-webkit-scrollbar {
   width: 8px;
@@ -113,6 +114,7 @@ h1 {
 }
 .hide-text * {
   margin: 30px;
+  margin-right: 45px;
 }
 .hide-text > h2 {
   color: burlywood;
@@ -145,15 +147,19 @@ h1 {
 }
 .close {
   color: gray;
-  font-family: cursive;
+  font-family: monospace;
   font-size: 30px;
   position: -webkit-sticky;
   position: sticky;
   right: 0;
-  top: 1em;
+  top: 0;
   text-align: end;
   margin: 0 !important;
   margin-right: 20px !important;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  float: right;
 }
 .close:hover {
   color: white;

@@ -4,12 +4,6 @@
   "description": "PolGla Translator - Tłumaczenie tekstu z alfabetu Łacińskiego lub Polskiego na Głagolice. Translate text from the Latin or Polish alphabet to Glagolitic.",
   "icons": [
     {
-      "src": "img/icon-24x24.png",
-      "sizes": "24x24",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "img/icon-48x48.png",
       "sizes": "48x48",
       "type": "image/png",

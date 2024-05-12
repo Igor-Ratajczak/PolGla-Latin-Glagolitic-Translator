@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 let version = "v25";
+=======
+let version = "v23";
+>>>>>>> 2b774ca (Update files)
 const addResourcesToCache = async (resources) => {
   const cache = await caches.open(version);
   await cache.addAll(resources);
